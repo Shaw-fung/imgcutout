@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 # 启用CSRF保护
 csrf = CSRFProtect(app)
 # 加载自定义模型
-model_path = "u2netp.onnx"
+model_path = "silueta.onnx"
 
 # 允许上传的文件类型和大小
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
