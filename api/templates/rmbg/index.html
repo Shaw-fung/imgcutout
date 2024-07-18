@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片转ICO转换器</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .upload-area {
+            border: 2px dashed #ccc;
+            padding: 50px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .upload-area:hover {
+            border-color: #007bff;
+        }
+
+        .upload-area p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .upload-area input[type="file"] {
+            display: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0062cc;
+        }
+
+        .options {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .start-over {
+            background-color: #ccc;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .start-over:hover {
+            background-color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>抠图工具</h1>
+        <p>快速、免费的 图片 在线抠图工具。（目前支持的格式：png，jpg，jpeg，gif）</p>
+        <form action="/cutout" method="post" enctype="multipart/form-data">
+            <div class="upload-area">
+                <label for="fileInput">
+                    <input type="file" name="file" id="fileInput" accept=".png,.jpg,.jpeg,.gif,.webp">
+                    <p id="fileName">请点击这里选择待转换的文件</p>
+                </label>
+            </div>
+            <button id="convertButton" type="submit">开始抠图</button>
+            <div class="options">
+                <button class="start-over" id="startOverButton" type="reset">重新开始</button>
+            </div>
+        </form>
+    </div>
+    <p>源代码:<a href="https://github.com/Shaw-fung/imgcutout" target="_blank">https://github.com/Shaw-fung/imgcutout</a></p>
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const startOverButton = document.getElementById('startOverButton');
+        const fileName = document.getElementById('fileName');
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            // 处理上传的文件，可以在这里进行预处理
+            console.log('Selected file:', file);
+            fileName.innerHTML = `已选择文件：${file.name}`;
+        });
+
+        startOverButton.addEventListener('click', () => {
+            // 清除上传的文件和转换结果
+            fileInput.value = '';
+            fileName.innerHTML = '点击这里或拖放文件到这里';
+            // 您可以在这里添加其他重置操作，例如清除显示结果的区域
+            console.log('Start over button clicked');
+        });
+    </script>
+</body>
+</html>
