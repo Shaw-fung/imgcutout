@@ -1,7 +1,7 @@
 datasets==2.*
 fastapi==0.74.*
 requests==2.27.*
-sentencepiece==0.1.*
+sentencepiece
 torch==2.2.*
 transformers==4.*
 uvicorn[standard]==0.17.*
