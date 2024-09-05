@@ -1,11 +1,4 @@
-datasets==2.*
-fastapi==0.74.*
-requests==2.27.*
-sentencepiece
-torch==2.2.*
-transformers==4.*
-uvicorn[standard]==0.17.*
-modelscope
-tensorflow
+flask_wtf
 flask
-opencv-python
+Pillow
+rembg
